@@ -65,7 +65,7 @@ const PricingSection = () => {
     {
       id: 'trial',
       question: 'Do you offer a free trial?',
-      answer: 'Yes, we offer a 14-day free trial of our Professional plan with no credit card required. You'll get full access to all features during this period.'
+      answer: 'Yes, we offer a 14-day free trial of our Professional plan with no credit card required. You\'ll get full access to all features during this period.'
     },
     {
       id: 'cancel',
@@ -75,7 +75,7 @@ const PricingSection = () => {
     {
       id: 'languages',
       question: 'What programming languages do you support?',
-      answer: 'We support most popular programming languages including JavaScript, TypeScript, Python, Java, C#, Ruby, Go, PHP, Swift, and more. We're constantly adding support for additional languages.'
+      answer: 'We support most popular programming languages including JavaScript, TypeScript, Python, Java, C#, Ruby, Go, PHP, Swift, and more. We\'re constantly adding support for additional languages.'
     },
     {
       id: 'team',

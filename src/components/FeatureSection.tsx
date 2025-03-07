@@ -22,7 +22,7 @@ const features = [
   {
     icon: <Sparkles className="h-10 w-10 text-primary" />,
     title: 'Style Enforcement',
-    description: 'Ensures code adheres to your team's style guidelines for consistent, maintainable codebases.'
+    description: 'Ensures code adheres to your team\'s style guidelines for consistent, maintainable codebases.'
   },
   {
     icon: <Code className="h-10 w-10 text-primary" />,
