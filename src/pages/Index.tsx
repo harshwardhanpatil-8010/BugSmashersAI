@@ -4,12 +4,15 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeatureSection from '@/components/FeatureSection';
 import CodeReviewDemo from '@/components/CodeReviewDemo';
-import ReviewStats from '@/components/ReviewStats';
+
 import PricingSection from '@/components/PricingSection';
 import Footer from '@/components/Footer';
+import AboutUs from '@/components/Aboutus';
+import HowItWorks from '@/components/Howitworks';
+//import { DarkModeProvider } from '@/components/ui/Dark-mode-context';
 
 const Index = () => {
-  // Implement smooth scrolling for anchor links
+
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -50,17 +53,19 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    
+        <div>
       <Navbar />
       <main>
         <HeroSection />
+        <AboutUs />
         <FeatureSection />
         <CodeReviewDemo />
-        <ReviewStats />
+        <HowItWorks />
         <PricingSection />
       </main>
       <Footer />
-    </div>
+      </div>
   );
 };
 
