@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import ButtonGlow from './ui/ButtonGlow';
@@ -33,58 +34,61 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
           <Code className="h-8 w-8 text-primary dark:text-primary" />
-          <span className="font-bold text-xl dark:text-white">CodeReviewAI</span>
+          <span className="font-bold text-xl text-gray-900 dark:text-white">CodeReviewAI</span>
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
+          <a href="#features" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             Features
           </a>
-          <a href="#demo" className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
+          <a href="#demo" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             How It Works
           </a>
-          <a href="#pricing" className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
+          <a href="#pricing" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             Pricing
           </a>
+          <DarkModeToggle />
           <ButtonGlow size="sm">Start Free Trial</ButtonGlow>
-          {/* <DarkModeToggle /> */}
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center space-x-4">
+          <DarkModeToggle />
+          <button 
+            className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-800 rounded-b-lg p-4 border-t dark:border-gray-800 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-800/30 rounded-b-lg p-4 border-t dark:border-gray-800 animate-fade-in">
           <nav className="flex flex-col space-y-4">
             <a 
               href="#features" 
-              className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Features
             </a>
             <a 
               href="#demo" 
-              className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               How It Works
             </a>
             <a 
               href="#pricing" 
-              className="text-sm font-medium hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
@@ -100,4 +104,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

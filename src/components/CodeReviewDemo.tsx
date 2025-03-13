@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import GlassCard from './ui/GlassCard';
 import { Code, MessageSquare, ThumbsUp } from 'lucide-react';
-
+import First from "../assets/images/first.png"
+import Second from "../assets/images/second.png"
 const CodeReviewDemo = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -39,25 +40,14 @@ const CodeReviewDemo = () => {
     if (isVisible) {
       const timer = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % steps.length);
-      }, 5000);
+      }, 4000);
       
       return () => clearInterval(timer);
     }
   }, [isVisible, steps.length]);
 
-  // Code examples
-  const codeExample = `
-function fetchUserData(userId) {
-  // No error handling
-  const response = fetch('https://api.example.com/users/' + userId);
-  return response.json();
-}
 
-// Potential security issue with user input
-function displayUserData(userId) {
-  const data = fetchUserData(userId);
-  document.getElementById('user-data').innerHTML = data.name;
-}`;
+ 
 
   const issuesFound = [
     { id: 1, type: 'Error Handling', message: 'No try/catch block for API request' },
@@ -65,37 +55,13 @@ function displayUserData(userId) {
     { id: 3, type: 'Security Risk', message: 'Potential XSS vulnerability' }
   ];
 
-  const aiSuggestion = `
-async function fetchUserData(userId) {
-  try {
-    const response = await fetch(\`https://api.example.com/users/\${userId}\`);
-    if (!response.ok) {
-      throw new Error(\`API error: \${response.status}\`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to fetch user data:', error);
-    throw error;
-  }
-}
-
-async function displayUserData(userId) {
-  try {
-    const data = await fetchUserData(userId);
-    // Use textContent to prevent XSS
-    document.getElementById('user-data').textContent = data.name;
-  } catch (error) {
-    // Handle error gracefully
-    document.getElementById('user-data').textContent = 'Failed to load user data';
-  }
-}`;
-
+  
   const renderContent = () => {
     switch (steps[currentStep].id) {
       case 'code':
         return (
           <div className="code-highlight">
-            <pre>{codeExample}</pre>
+            <img src={First} alt="" />
           </div>
         );
       case 'issues':
@@ -124,7 +90,7 @@ async function displayUserData(userId) {
               <span className="text-green-700 font-medium">AI Suggested Improvement</span>
             </div>
             <div className="code-highlight">
-              <pre>{aiSuggestion}</pre>
+              <img src={Second} alt="" />
             </div>
           </div>
         );

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import ButtonGlow from './ui/ButtonGlow';
 import { ArrowRight, Bold, Check, Star } from 'lucide-react';
+import FloatingElements from './ui/FloatingElements';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -24,9 +25,9 @@ const HeroSection = () => {
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center pt-24 pb-16 overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" ref={heroRef}>
       {/* Enhanced background glow effect */}
-      <div className="absolute inset-0 bg-hero-glow opacity-80 dark:opacity-40 animate-pulse pointer-events-none"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent dark:from-primary/10 pointer-events-none"></div>
-      
+          <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black,transparent)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/80 dark:to-gray-950/80"></div>
+      <FloatingElements />
       {/* Hero Content */}
       <div className="max-w-5xl mx-auto px-6 md:px-8 text-center z-10">
         <div className="flex justify-center mb-8 animate-on-load">
@@ -71,8 +72,11 @@ const HeroSection = () => {
       </div>
       
       {/* Enhanced floating code blocks */}
+       <div className="absolute top-1/4 -left-16 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 -right-16 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/4 -left-16 w-72 h-56 bg-white/30 dark:bg-gray-800/20 backdrop-blur-lg rounded-xl border border-white/20 dark:border-gray-700/30 transform -rotate-12 opacity-70 animate-float hidden md:block shadow-lg"></div>
       <div className="absolute bottom-1/4 -right-16 w-72 h-48 bg-white/30 dark:bg-gray-800/20 backdrop-blur-lg rounded-xl border border-white/20 dark:border-gray-700/30 transform rotate-12 opacity-70 animate-float hidden md:block shadow-lg" style={{ animationDelay: '1s' }}></div>
+      
     </div>
   );
 };
