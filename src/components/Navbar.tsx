@@ -50,7 +50,7 @@ const Navbar = () => {
             Pricing
           </a>
           <DarkModeToggle />
-          <a href="/login">
+          <a href="/api/auth/login">
           <ButtonGlow size="sm">Login</ButtonGlow>
           </a>
         </nav>
