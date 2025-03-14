@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import ButtonGlow from './ui/ButtonGlow';
 import { Code, Menu, X } from 'lucide-react';
 import DarkModeToggle from './ui/DarkModeToggle';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,9 +51,9 @@ const Navbar = () => {
             Pricing
           </a>
           <DarkModeToggle />
-          <a href="/api/auth/login">
+          <Link to="/login">
           <ButtonGlow size="sm">Login</ButtonGlow>
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -96,11 +97,11 @@ const Navbar = () => {
             >
               Pricing
             </a>
-            <a href="/login">
+            <Link to="/login">
             <ButtonGlow size="sm" className="w-full justify-center">
               Login
             </ButtonGlow>       
-            </a>
+            </Link>
           </nav>
         </div>
       )}
