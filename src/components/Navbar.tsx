@@ -32,9 +32,10 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#" className="flex items-center space-x-2">
+        <a href="/" className="flex items-center space-x-2">
           <Code className="h-8 w-8 text-primary dark:text-primary" />
           <span className="font-bold text-xl text-gray-900 dark:text-white">CodeReviewAI</span>
+          <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded ml-2 font-mono">BETA</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -49,7 +50,9 @@ const Navbar = () => {
             Pricing
           </a>
           <DarkModeToggle />
-          <ButtonGlow size="sm">Start Free Trial</ButtonGlow>
+          <a href="/login">
+          <ButtonGlow size="sm">Login</ButtonGlow>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -93,9 +96,11 @@ const Navbar = () => {
             >
               Pricing
             </a>
+            <a href="/login">
             <ButtonGlow size="sm" className="w-full justify-center">
-              Start Free Trial
-            </ButtonGlow>
+              Login
+            </ButtonGlow>       
+            </a>
           </nav>
         </div>
       )}

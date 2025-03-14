@@ -23,7 +23,10 @@ export default {
       }
     },
     extend: {
+      
       colors: {
+        'apple-blue': '#007aff',  // Adjust as per your design
+        'apple-dark': '#1d1d1f',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

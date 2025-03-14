@@ -40,3 +40,49 @@
 .read-the-docs {
   color: #888;
 }
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left , main .right {
+  flex-basis: 50%;
+  height: 100%;
+  border-radius: 0.7rem; 
+}
+
+main .left  {
+  background-color: #000;
+}
+
+.left .code, .code pre, .code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #000;
+  
+}
+main .left .review {
+  position: absolute;
+  bottom: 2rem;
+  left: 45rem;
+  background-color: aqua;
+  padding: 0.5rem 2rem;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  
+}
+
+main .right {
+  background-color: #222020;
+  padding: 1rem 2rem;
+  overflow: auto;
+  font-size: 1.2rem;
+}
