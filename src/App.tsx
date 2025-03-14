@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }) => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="https://code-reviewer-backend-production.up.railway.app/login" element={<Login />} />
           <Route path="/review" element={< Review/>}/>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
