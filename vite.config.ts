@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   build: {
     rollupOptions: {
-      external: ["zwitch"],
+      external: [],
     },
   },
   resolve: {
