@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import ButtonGlow from './ui/ButtonGlow';
 import { Code, Menu, X } from 'lucide-react';
-import DarkModeToggle from './ui/DarkModeToggle';
+
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -50,7 +50,7 @@ const Navbar = () => {
           <a href="#pricing" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             Pricing
           </a>
-          <DarkModeToggle />
+         
           <Link to="/login">
           <ButtonGlow size="sm">Login</ButtonGlow>
           </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
-          <DarkModeToggle />
+        
           <button 
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
