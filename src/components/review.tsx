@@ -29,7 +29,7 @@ function Review() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://code-reviewer-backend-production.up.railway.app/ai/get-review",
+        "http://localhost:3000/ai/get-review",
         { code }
       );
       setReview(response.data);
