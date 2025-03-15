@@ -3,8 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
-import BackgroundElements from "./ui/BackgroundElements";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Register = () => {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +25,7 @@ const Register = () => {
         
         setIsLoading(true);
         try {
-            await axios.post("https://code-reviewer-backend-production.up.railway.app/api/auth/register", form);
+            await axios.post(`${API_BASE_URL}/api/auth/register`, form);
             toast({
                 title: "Registration successful",
                 description: "Your account has been created",

@@ -9,6 +9,7 @@ import BackgroundElements from "./ui/BackgroundElements";
 import { ClipboardCopy } from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Review() {
   const [code, setCode] = useState("");
@@ -29,7 +30,7 @@ function Review() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/ai/get-review",
+        `${API_BASE_URL}/ai/get-review`,
         { code }
       );
       setReview(response.data);
