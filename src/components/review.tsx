@@ -9,6 +9,10 @@ import BackgroundElements from "./ui/BackgroundElements";
 import { ClipboardCopy } from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import { Separator } from "./ui/separator";
+
+
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Review() {
@@ -106,7 +110,14 @@ function Review() {
                   const match = /language-(\w+)/.exec(className || "");
                   return !inline && match ? (
                     <div className="relative group">
-                      <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-auto">
+                      <pre className="bg-black text-white p-4 rounded-lg overflow-auto">
+                      <div className="flex gap-2 mb-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <Separator />
+                  <div className=" top-0 mb-5"/>
                         <code
                           className={`language-${match[1]}`}
                           {...props}
@@ -119,6 +130,7 @@ function Review() {
                           }}
                         />
                       </pre>
+                     
                       <button
                         onClick={() => copyToClipboard(String(children).trim())}
                         className="absolute top-2 right-2 bg-gray-700 text-white text-xs px-3 py-1 rounded-md opacity-100 transition-opacity hover:bg-gray-600"
