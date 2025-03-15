@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    rollupOptions: {
+      external: ["zwitch"],
+    },
+  },
   plugins: [
     react(),
     mode === 'development' &&
@@ -18,10 +23,6 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-      build: {
-    rollupOptions: {
-      external: ["zwitch"],
-    },
-  },
+      
   },
 }));
