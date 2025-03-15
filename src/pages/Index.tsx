@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import HowItWorks from '@/components/Howitworks';
 import AlternatingFeatures from '@/components/AlternatingFeatures';
 import CallToAction from '@/components/CallToAction';
+import Extension from '@/components/Extension';
 //import { DarkModeProvider } from '@/components/ui/Dark-mode-context';
 
 const Index = () => {
@@ -67,6 +68,7 @@ const Index = () => {
       <div className="absolute right-0 top-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/20 opacity-20 blur-3xl"></div>
       <div className="absolute left-0 bottom-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/20 opacity-20 blur-3xl"></div>
         <HeroSection />
+        <Extension />
       <AlternatingFeatures />
         <FeatureSection />
         <CodeReviewDemo />

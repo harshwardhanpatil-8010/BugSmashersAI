@@ -10,6 +10,7 @@ import Login from "./components/login";
 
 import { AuthProvider } from "./context/AuthContext";
 import Review from "./components/review";
+
 const queryClient = new QueryClient();
 
 const App = ({ Component, pageProps }) => (
@@ -25,6 +26,7 @@ const App = ({ Component, pageProps }) => (
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/review" element={< Review/>}/>
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

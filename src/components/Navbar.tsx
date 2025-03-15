@@ -41,6 +41,10 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
+        <a href="#extension" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
+            Extension
+          </a>
+         
           <a href="#features" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             Features
           </a>
@@ -50,7 +54,7 @@ const Navbar = () => {
           <a href="#pricing" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
             Pricing
           </a>
-         
+          
           <Link to="/login">
           <ButtonGlow size="sm">Login</ButtonGlow>
           </Link>

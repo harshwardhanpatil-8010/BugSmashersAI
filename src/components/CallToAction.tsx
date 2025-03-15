@@ -64,9 +64,7 @@ const CallToAction = () => {
                 <span>Start Free Trial</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </ButtonGlow>
-              <ButtonGlow variant="outline">
-                Book a Demo
-              </ButtonGlow>
+           
             </div>
           </motion.div>
           
