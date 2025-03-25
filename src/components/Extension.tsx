@@ -14,7 +14,7 @@ const Extension = () => {
           Seamlessly integrate with your development environment and boost your productivity
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="/login">
+        <a href="https://marketplace.visualstudio.com/items?itemName=HarshwardhanPatil8010.ai-code-reviewer">
           <Button 
             size="lg"
             className="flex items-center justify-center space-x-3 px-12 py-3 text-lg font-semibold  transition-transform bg-primary/80"

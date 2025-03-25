@@ -33,12 +33,14 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center space-x-2">
         <a href="/" className="flex items-center space-x-2">
         <img src={logo} alt="Logo" width="50" />
-          <span className="font-bold text-xl text-gray-900 dark:text-white">BugSmashersAI</span>
+       
+          <span className="font-bold text-xl text-primary dark:text-white">BugSmashersAI</span>
           <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded ml-2 font-mono">BETA</span>
         </a>
-
+        </div>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
         <a href="#extension" className="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">

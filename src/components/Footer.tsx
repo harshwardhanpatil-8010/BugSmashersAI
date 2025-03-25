@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Code, Twitter, Github, Linkedin, Heart } from 'lucide-react';
-
+import logo from "../assets/images/logo.png"
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-6 gap-64 pb-16 border-b border-gray-200 dark:border-gray-700">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <Code className="h-7 w-7 text-primary dark:text-blue-400" />
+            <img src={logo} alt="Logo" width="50" />
               <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
               BugSmashersAI
               </span>
