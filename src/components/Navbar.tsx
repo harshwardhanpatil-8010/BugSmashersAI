@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import ButtonGlow from './ui/ButtonGlow';
 import { Code, Menu, X } from 'lucide-react';
-
+import logo from "../assets/images/logo.png"
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center space-x-2">
-          <Code className="h-8 w-8 text-primary dark:text-primary" />
+        <img src={logo} alt="Logo" width="50" />
           <span className="font-bold text-xl text-gray-900 dark:text-white">BugSmashersAI</span>
           <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded ml-2 font-mono">BETA</span>
         </a>
