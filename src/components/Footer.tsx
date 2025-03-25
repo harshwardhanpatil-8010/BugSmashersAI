@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <Code className="h-7 w-7 text-primary dark:text-blue-400" />
               <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
-                CodeReviewAI
+              BugSmashersAI
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
@@ -86,7 +86,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-10">
           <div className="text-gray-500 dark:text-gray-400 text-sm mb-4 md:mb-0 flex items-center">
-            © {currentYear} CodeReviewAI. Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by developers for developers
+            © {currentYear} BugSmashersAI. Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by developers for developers
           </div>
         </div>
       </div>

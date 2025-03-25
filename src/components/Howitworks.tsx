@@ -6,7 +6,7 @@ const steps = [
   {
     icon: <Code size={32} className="text-blue-500" />,
     title: "1. Connect Your Code",
-    description: "Easily integrate with GitHub, GitLab, Bitbucket, or upload your code directly. ReviewGenie works with all major programming languages.",
+    description: "Easily integrate with GitHub, GitLab, Bitbucket, or upload your code directly. BugSmashersAI works with all major programming languages.",
     delay: 1
   },
   {
@@ -85,7 +85,7 @@ const HowItWorks = () => {
             Simple Process, Powerful Results
           </h2>
           <p className="reveal text-lg text-gray-600">
-            ReviewGenie seamlessly integrates with your existing workflow to provide instant feedback and improve code quality.
+          BugSmashersAI seamlessly integrates with your existing workflow to provide instant feedback and improve code quality.
           </p>
         </div>
         

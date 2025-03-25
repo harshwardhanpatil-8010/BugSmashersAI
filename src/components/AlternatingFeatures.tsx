@@ -22,7 +22,7 @@ const features: Feature[] = [
   },
   {
     title: "Seamless Integration",
-    description: "ReviewGenie integrates directly with GitHub, GitLab, and Bitbucket. Set it up once and get automated code reviews on every pull request.",
+    description: "BugSmashersAI integrates directly with GitHub, GitLab, and Bitbucket. Set it up once and get automated code reviews on every pull request.",
     icon: <GitMerge className="h-8 w-8 text-primary" />,
     image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZGUlMjBpbnRlZ3JhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&h=600&q=60",
     align: 'right'
@@ -48,7 +48,7 @@ const AlternatingFeatures = () => {
             Powerful Tools For Modern Development
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            ReviewGenie combines cutting-edge AI with developer-friendly features that integrate seamlessly into your workflow.
+          BugSmashersAI combines cutting-edge AI with developer-friendly features that integrate seamlessly into your workflow.
           </p>
         </div>
 

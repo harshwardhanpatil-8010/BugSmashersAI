@@ -36,7 +36,7 @@ const CallToAction = () => {
             </h2>
             
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Join thousands of developers who are shipping better code faster with ReviewGenie. Start your free trial today and experience the power of AI-assisted code reviews.
+              Join thousands of developers who are shipping better code faster with BugSmashersAI. Start your free trial today and experience the power of AI-assisted code reviews.
             </p>
             
             <ul className="space-y-3 mb-10">
