@@ -51,7 +51,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12 animate-on-load">
           <Link to="/register">
           <ButtonGlow size="lg" className="flex items-center justify-center space-x-3 px-8 py-4 text-lg font-semibold hover:scale-105 transition-transform dark:bg-primary/90 dark:hover:bg-primary/80">
-            <span>Start Free Trial</span>
+            <span>Get Started </span>
             <ArrowRight className="h-5 w-5" />
           </ButtonGlow>
           </Link>

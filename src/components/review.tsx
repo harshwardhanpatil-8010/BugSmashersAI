@@ -10,6 +10,7 @@ import { ClipboardCopy } from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Separator } from "./ui/separator";
+import Navbar from "./Navbar";
 
 
 
@@ -57,6 +58,7 @@ function Review() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6 z-50">
       <BackgroundElements />
+
 
       {/* Code Input Box */}
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 border border-gray-300 z-50">

@@ -34,7 +34,7 @@ const plans = [
       'Team collaboration features'
     ],
     popular: true,
-    buttonText: 'Start 14-day trial'
+    buttonText: 'Start 14-day Free trial'
   },
   {
     name: 'Enterprise',
