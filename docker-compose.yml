@@ -1,8 +1,15 @@
+version: '3.8'
+
 services:
-  app:
-    build: .
-    container_name: react-vite-app
+  web:
+    # Build the Docker image from the Dockerfile in the current directory
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Name the container for easier identification
+    container_name: my-vite-app
+    # Map port 8080 on the host to port 80 in the container
     ports:
-      # Map host port 8080 to container port 80 (Nginx)
       - "8080:80"
+    # Restart the container automatically unless it was manually stopped
     restart: unless-stopped
