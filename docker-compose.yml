@@ -1,45 +1,24 @@
 version: '3.8'
 
-# This docker-compose file is configured for local development.
-# It provides hot-reloading and a consistent development environment.
-
 services:
-  app:
-    container_name: bugsmashersai-app-dev
-    # Use a standard Node.js Alpine image for development
-    image: node:20-alpine
-
-    # Set the working directory inside the container
-    working_dir: /app
-
-    # Command to install dependencies and start the Vite dev server
-    # '--host 0.0.0.0' is crucial to expose the server outside the container
-    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
-
-    volumes:
-      # Mount the current directory on the host to /app in the container
-      - .:/app
-      # Use a named volume to persist node_modules and avoid overwriting it
-      - node_modules_volume:/app/node_modules
-
+  bugsmashersai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bugsmashersai-app
     ports:
-      # Map port 5173 on the host to 5173 in the container (Vite's default)
-      - "5173:5173"
-
-    # Restart the container automatically unless it's manually stopped
+      - "8080:80"
     restart: unless-stopped
-
-    environment:
-      - NODE_ENV=development
-
     healthcheck:
-      # Check if the Vite dev server is responsive
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5173"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 30s
-
-# Define the named volume for node_modules
-volumes:
-  node_modules_volume:
+      start_period: 5s
+    # For development with hot-reloading, a different setup is recommended.
+    # You would typically use a docker-compose.override.yml or a separate dev service:
+    # command: npm run dev -- --host
+    # ports:
+    #   - "5173:5173"
+    # volumes:
+    #   - ./src:/app/src
