@@ -1,15 +1,45 @@
 version: '3.8'
 
+# This docker-compose file is configured for local development.
+# It provides hot-reloading and a consistent development environment.
+
 services:
-  web:
-    # Build the Docker image from the Dockerfile in the current directory
-    build:
-      context: .
-      dockerfile: Dockerfile
-    # Name the container for easier identification
-    container_name: my-vite-app
-    # Map port 8080 on the host to port 80 in the container
+  app:
+    container_name: bugsmashersai-app-dev
+    # Use a standard Node.js Alpine image for development
+    image: node:20-alpine
+
+    # Set the working directory inside the container
+    working_dir: /app
+
+    # Command to install dependencies and start the Vite dev server
+    # '--host 0.0.0.0' is crucial to expose the server outside the container
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+    volumes:
+      # Mount the current directory on the host to /app in the container
+      - .:/app
+      # Use a named volume to persist node_modules and avoid overwriting it
+      - node_modules_volume:/app/node_modules
+
     ports:
-      - "8080:80"
-    # Restart the container automatically unless it was manually stopped
+      # Map port 5173 on the host to 5173 in the container (Vite's default)
+      - "5173:5173"
+
+    # Restart the container automatically unless it's manually stopped
     restart: unless-stopped
+
+    environment:
+      - NODE_ENV=development
+
+    healthcheck:
+      # Check if the Vite dev server is responsive
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5173"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+# Define the named volume for node_modules
+volumes:
+  node_modules_volume:
