@@ -1,44 +1,46 @@
-# Stage 1: Build the React application
 FROM node:20-alpine AS builder
-
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json for dependency installation
-# This leverages Docker's layer caching
+# Install curl for health checks in dev compose
+RUN apk add --no-cache curl
+
 COPY package.json package-lock.json ./
 
-# Install dependencies using npm ci for reproducible builds
+# Use npm ci for reproducible builds
 RUN npm ci
 
-# Copy the rest of the application source code
 COPY . .
 
-# Build the application for production
+# Build the application
 RUN npm run build
 
-# Stage 2: Serve the application using Nginx
+# --- Production Stage ---
 FROM nginx:1.27-alpine AS production
 
 # Create a non-root user and group for security
-RUN addgroup -g 1001 -S nginx && \
-    adduser -S nginx -u 1001
-
-# Copy the built static files from the builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Copy the custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80 for the Nginx server
+# Copy only the built assets from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Ensure the app user can read the files
+RUN chown -R appuser:appgroup /usr/share/nginx/html && chmod -R 755 /usr/share/nginx/html
+
+# Install curl for health checks
+RUN apk add --no-cache curl
+
+# Expose the port Nginx listens on
 EXPOSE 80
 
-# Switch to the non-root user
-USER nginx
-
-# Healthcheck to ensure Nginx is running
+# Healthcheck to ensure Nginx is serving content
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
+  CMD curl -f http://localhost/ || exit 1
+
+# Graceful shutdown signal for Nginx
+STOPSIGNAL SIGQUIT
 
 # Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
