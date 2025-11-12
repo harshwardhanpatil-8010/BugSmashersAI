@@ -1,24 +1,36 @@
 version: '3.8'
 
 services:
-  bugsmashersai:
+  app:
+    # This service is configured for a DEVELOPMENT environment
+    container_name: bugsmashersai-dev
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: bugsmashersai-app
+      # Use the 'builder' stage which contains Node.js and all dependencies
+      target: builder
+    # Override the production CMD to run the Vite dev server
+    command: npm run dev -- --host
+    volumes:
+      # Mount source code for hot-reloading
+      - ./src:/app/src
+      - ./public:/app/public
+      # Mount config files that might change during development
+      - ./vite.config.ts:/app/vite.config.ts
+      - ./tailwind.config.ts:/app/tailwind.config.ts
+      - ./postcss.config.js:/app/postcss.config.js
     ports:
-      - "8080:80"
+      - "5173:5173"
     restart: unless-stopped
+    environment:
+      # This enables file watching via polling, which is often necessary in Docker
+      - CHOKIDAR_USEPOLLING=true
+      # Add any development-specific environment variables here
+      # - VITE_API_BASE_URL=http://localhost:8080
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      # Checks if the Vite dev server is responsive
+      test: ["CMD", "curl", "-f", "http://localhost:5173"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 5s
-    # For development with hot-reloading, a different setup is recommended.
-    # You would typically use a docker-compose.override.yml or a separate dev service:
-    # command: npm run dev -- --host
-    # ports:
-    #   - "5173:5173"
-    # volumes:
-    #   - ./src:/app/src
+      retries: 5
+      start_period: 30s
